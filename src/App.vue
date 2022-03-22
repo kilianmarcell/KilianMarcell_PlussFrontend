@@ -17,7 +17,7 @@ export default {
 
 <style>
   #page {
-    background: linear-gradient(120deg, #3a04ff, #fc0477, #ff0000);
+    background: #222629;
     color: white;
   }
 </style>

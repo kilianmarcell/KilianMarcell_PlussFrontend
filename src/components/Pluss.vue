@@ -1,11 +1,9 @@
 <template>
-    <div class="text-center">
-        <h1 class="p-5">
-            Plüssök
-        </h1>
-    <table class="m-auto p-5">
+    <div class="text-center pb-5">
+        <p class="fs-1 fw-bold text-uppercase text-decoration-underline p-5">Plüssök</p>
+    <table class="m-auto w-75">
         <thead>
-            <tr class="f-4">
+            <tr class="fs-2">
                 <th>Azonosító</th>
                 <th>Név</th>
             </tr>
@@ -15,12 +13,12 @@
                     <td>{{ p.id }}</td>
                     <td>{{ p.nev }}</td>
                     <td>
-                        <button class="btn btn-danger w-100" @click="deletePluss(p.id)">Törlés</button>
+                        <button class="btn btn-danger w-75" @click="deletePluss(p.id)">Törlés</button>
                         <br>
-                        <button class="btn btn-primary w-100"  @click="editPluss(p.id)">Szerkesztés</button>
+                        <button class="btn btn-primary w-75"  @click="editPluss(p.id)">Szerkesztés</button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="mt-5">
                     <td></td>
                     <td>
                         <input type="text" v-model="pluss.nev">
@@ -112,9 +110,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    table {
-        background: #222629;
-    }
-</style>
