@@ -8,26 +8,26 @@
                 <th>Név</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="fs-4">
                 <tr v-for="p in plussok" :key="p.id">
-                    <td>{{ p.id }}</td>
-                    <td>{{ p.nev }}</td>
-                    <td>
-                        <button class="btn btn-danger w-75" @click="deletePluss(p.id)">Törlés</button>
+                    <td class="w-25">{{ p.id }}</td>
+                    <td class="w-50">{{ p.nev }}</td>
+                    <td class="w-25">
+                        <button class="btn btn-danger w-75 fs-5" @click="deletePluss(p.id)">Törlés</button>
                         <br>
-                        <button class="btn btn-primary w-75"  @click="editPluss(p.id)">Szerkesztés</button>
+                        <button class="btn btn-primary w-75 fs-5" @click="editPluss(p.id)">Szerkesztés</button>
                     </td>
                 </tr>
                 <tr class="mt-5">
-                    <td></td>
-                    <td>
-                        <input type="text" v-model="pluss.nev">
+                    <td class="w-25"></td>
+                    <td class="w-50">
+                        <input class="w-100" type="text" v-model="pluss.nev">
                     </td>
-                    <td>
-                        <button @click="newPluss" :disabled="saving" v-if="!add_new">Hozzáadás</button>
-                        <button v-if="add_new" @click="savePluss">Mentés</button>
+                    <td class="p-5 w-25">
+                        <button class="btn btn-success w-75 fs-5" @click="newPluss" :disabled="saving" v-if="!add_new">Hozzáadás</button>
+                        <button class="btn btn-primary w-75 fs-5" v-if="add_new" @click="savePluss">Mentés</button>
                         <br>
-                        <button v-if="add_new" @click="cancelPluss">Mégse</button>
+                        <button class="btn btn-danger w-75 fs-5" v-if="add_new" @click="cancelPluss">Mégse</button>
                     </td>
                 </tr>
         </tbody>
@@ -76,6 +76,8 @@ export default {
                 .delete(`http://127.0.0.1:8000/api/pluss/${id}`)
                 .catch(error => console.log(error))
             await this.loadData()
+
+            this.resetForm()
         },
 
         async editPluss(id) {
